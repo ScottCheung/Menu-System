@@ -68,11 +68,10 @@ export default function ScreenLayout({
 
       {/* 导航控件 */}
       <div
-        className={`fixed top-1/2 right-[3vh] -translate-y-1/2 z-50 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-          showNav ?
+        className={`fixed top-1/2 right-[3vh] -translate-y-1/2 z-50 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${showNav ?
             'opacity-100 translate-x-0'
-          : 'opacity-0 translate-x-[4vh] pointer-events-none'
-        }`}
+            : 'opacity-0 translate-x-[4vh] pointer-events-none'
+          }`}
       >
         <div
           className='relative rounded-[2.5vh] p-[1.2vh] backdrop-blur-3xl'
@@ -89,30 +88,28 @@ export default function ScreenLayout({
               <button
                 key={page}
                 onClick={() => goToPage(page)}
-                className={`group relative w-[5.5vh] h-[5.5vh] rounded-[1.5vh] flex items-center justify-center transition-all duration-500 ease-out ${
-                  currentPage === page ? 'scale-110' : 'hover:scale-110 active:scale-95'
-                }`}
+                className={`group relative w-[5.5vh] h-[5.5vh] rounded-[1.5vh] flex items-center justify-center transition-all duration-500 ease-out ${currentPage === page ? 'scale-110' : 'hover:scale-110 active:scale-95'
+                  }`}
                 style={{
                   background:
                     currentPage === page ?
                       'linear-gradient(135deg, #ffd700 0%, #ff9500 100%)'
-                    : 'rgba(255, 255, 255, 0.05)',
+                      : 'rgba(255, 255, 255, 0.05)',
                   border:
                     currentPage === page ?
                       '1px solid rgba(255, 215, 0, 0.5)'
-                    : '1px solid rgba(255, 255, 255, 0.1)',
+                      : '1px solid rgba(255, 255, 255, 0.1)',
                   boxShadow:
                     currentPage === page ?
                       '0 0.8vh 2.5vh rgba(255, 215, 0, 0.4), inset 0 0 1vh rgba(255, 255, 255, 0.3)'
-                    : 'none',
+                      : 'none',
                 }}
               >
                 <span
-                  className={`text-[2.2vh] font-black transition-colors duration-300 ${
-                    currentPage === page ? 'text-[#1a1a1a]' : (
+                  className={`text-[2.2vh] font-black transition-colors duration-300 ${currentPage === page ? 'text-[#1a1a1a]' : (
                       'text-white/40 group-hover:text-white'
                     )
-                  }`}
+                    }`}
                 >
                   {page}
                 </span>
@@ -127,7 +124,7 @@ export default function ScreenLayout({
                   }}
                 >
                   <span className='text-[1.4vh] text-white font-bold tracking-wider'>
-                    Page {page}
+                    Screen {page}
                   </span>
                 </div>
               </button>
