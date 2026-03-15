@@ -777,8 +777,8 @@
       "items": [
         {
           "id": "22",
-          "name": "Stir Fry Egg Rice",
-          "image": "/images/Noodle & Fried Rice/Stir Fry Egg Rice.png",
+          "name": "Stir Fry Egg Noodle",
+          "image": "/images/Noodle & Fried Rice/Stir Fry Egg Noodle.png",
           "options": [
             {
               "name": "Combination",
@@ -869,8 +869,14 @@
           "modifiedFields": [],
           "price": 12.9,
           "tags": {
-            "ingredients": [],
-            "flavors": [],
+            "ingredients": [
+              "Noodles",
+              "Egg",
+              "Mixed"
+            ],
+            "flavors": [
+              "Savory"
+            ],
             "restrictions": []
           }
         },
@@ -969,8 +975,12 @@
           "modifiedFields": [],
           "price": 12.9,
           "tags": {
-            "ingredients": [],
-            "flavors": [],
+            "ingredients": [
+              "Mixed"
+            ],
+            "flavors": [
+              "Savory"
+            ],
             "restrictions": []
           }
         },
@@ -1069,8 +1079,13 @@
           "modifiedFields": [],
           "price": 12.99,
           "tags": {
-            "ingredients": [],
-            "flavors": [],
+            "ingredients": [
+              "Mixed"
+            ],
+            "flavors": [
+              "Sour",
+              "Sweet"
+            ],
             "restrictions": []
           }
         },
@@ -1169,8 +1184,12 @@
           "modifiedFields": [],
           "price": 11.9,
           "tags": {
-            "ingredients": [],
-            "flavors": [],
+            "ingredients": [
+              "Mixed"
+            ],
+            "flavors": [
+              "Savory"
+            ],
             "restrictions": []
           }
         }
@@ -1179,5 +1198,5 @@
       "modifiedFields": []
     }
   ],
-  "lastModified": "2026-03-15T18:03:02.030Z"
+  "lastModified": "2026-03-15T18:35:45.468Z"
 }

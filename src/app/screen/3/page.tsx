@@ -17,9 +17,10 @@ export default function Screen3() {
     if (!isLoaded) {
       setCategories(menuData.categories as any);
     } 
+    
     setMounted(true);
 
-    // Set CSS variable for responsive scaling based on viewport
+    // Set CSS variable for responsive scaling based on viewport oo
     const updateScale = () => {
       const baseWidth = 1920; // 设计基准宽度
       const scale = window.innerWidth / baseWidth;
@@ -37,7 +38,7 @@ export default function Screen3() {
   if (!isLoaded) {
     return (
       <div className='h-screen flex items-center justify-center bg-[#0a0a0a]'>
-        <div className='text-4xl font-bold text-white'>加载中...</div>
+        <div className='text-4xl font-bold text-white'>Loading...</div>
       </div>
     );
   }

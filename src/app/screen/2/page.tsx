@@ -47,7 +47,7 @@ export default function Screen2() {
   if (!isLoaded) {
     return (
       <div className='h-screen flex items-center justify-center bg-[#0a0a0a]'>
-        <div className='text-4xl font-bold text-white uppercase tracking-tighter'>加载中...</div>
+        <div className='text-4xl font-bold text-white uppercase tracking-tighter'>Loading...</div>
       </div>
     );
   }

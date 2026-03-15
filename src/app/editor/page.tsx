@@ -19,6 +19,7 @@ import { AddItemModal } from './components/AddItemModal';
 import { SaveConfirmModal } from './components/SaveConfirmModal';
 import { ManageTagsModal } from './components/ManageTagsModal';
 import { GlobalDrawer } from '@/components/layout/global-drawer';
+import menuData from '../../../data/menu.json';
 
 export default function EditorPage() {
   const {
@@ -34,6 +35,7 @@ export default function EditorPage() {
     getModifiedCount,
     saveChanges,
     getAllItems,
+    setCategories,
   } = useMenuStore();
 
   const { actions: layoutActions } = useLayoutStore();
@@ -62,8 +64,10 @@ export default function EditorPage() {
   const { handleImageUpload } = useImageUpload();
 
   useEffect(() => {
-    loadFromJSON();
-  }, [loadFromJSON]);
+    if (!isLoaded) {
+      setCategories(menuData.categories as any);
+    }
+  }, [isLoaded, setCategories]);
 
   const items = getAllItems();
 

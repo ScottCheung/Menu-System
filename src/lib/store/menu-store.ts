@@ -22,6 +22,8 @@ interface MenuStore {
   getAllItems: () => MenuItem[];
 }
 
+import menuData from '../../../data/menu.json';
+
 export const useMenuStore = create<MenuStore>((set, get) => ({
   categories: [],
   history: [],
@@ -31,11 +33,9 @@ export const useMenuStore = create<MenuStore>((set, get) => ({
     if (typeof window === 'undefined') return;
     
     try {
-      console.log('📖 Loading from JSON file');
-      const response = await fetch('/api/menu');
-      if (!response.ok) throw new Error('Failed to fetch menu data');
+      console.log('📖 Loading from JSON file directly');
       
-      const data = await response.json();
+      const data = menuData;
       
       set({ 
         categories: data.categories || [],
@@ -44,9 +44,9 @@ export const useMenuStore = create<MenuStore>((set, get) => ({
         isLoaded: true 
       });
       
-      console.log('✅ Data loaded successfully');
+      console.log('✅ Data loaded successfully from JSON');
     } catch (error) {
-      console.error('Failed to load data:', error);
+      console.error('Failed to load data from JSON:', error);
       set({ 
         categories: [],
         originalCategories: [],
@@ -116,7 +116,7 @@ export const useMenuStore = create<MenuStore>((set, get) => ({
           }
         }
         else if (newValue !== oldValue) {
-          modifiedFields.add(field);
+          modifiedFields.add(field as string);
         }
       });
     }
@@ -150,7 +150,7 @@ export const useMenuStore = create<MenuStore>((set, get) => ({
         const oldValue = originalCategory[field];
         
         if (newValue !== oldValue) {
-          modifiedFields.add(field);
+          modifiedFields.add(field as string);
         }
       });
     }

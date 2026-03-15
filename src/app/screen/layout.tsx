@@ -127,7 +127,7 @@ export default function ScreenLayout({
                   }}
                 >
                   <span className='text-[1.4vh] text-white font-bold tracking-wider'>
-                    第 {page} 页
+                    Page {page}
                   </span>
                 </div>
               </button>
@@ -160,6 +160,13 @@ export default function ScreenLayout({
             </button>
             <Link
               href={'/'}
+              onClick={() => {
+                if (document.fullscreenElement) {
+                  document.exitFullscreen().catch((err) => {
+                    console.error(`Error attempting to exit full-screen mode: ${err.message}`);
+                  });
+                }
+              }}
               className='w-[5.5vh] h-[5.5vh] rounded-[1.5vh] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 group mt-[0.5vh]'
               style={{
                 background: 'rgba(255, 215, 0, 0.1)',
@@ -193,7 +200,7 @@ export default function ScreenLayout({
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              选择页面
+              Select Screen
             </h2>
             <div className='grid grid-cols-3 gap-6'>
               {Array.from({ length: totalPages }, (_, i) => i + 1).map(
@@ -220,7 +227,7 @@ export default function ScreenLayout({
                         {page}
                       </span>
                       <span className='text-sm text-white/60 group-hover:text-black/60 transition-colors duration-300 mt-2'>
-                        第 {page} 页
+                        Page {page}
                       </span>
                     </div>
                   </button>
