@@ -136,7 +136,7 @@ export default function Screen2() {
               </div>
 
         {/* Grid for all rice bowls */}
-        <div className=' grid z-30 grid-cols-4  gap-[2vw] '>
+        <div className=' grid z-30 grid-cols-4  gap-[2vw]  pr-[2vw] '>
 <div></div><div></div>
           {filteredItems.map((item, idx) => (
             <div key={item.id} className='group relative '>
@@ -179,7 +179,7 @@ export default function Screen2() {
                   </h3>
 </AutoScroll>
     
-<div className='text-[0.9vw] flex '>
+<div className='text-[0.9vw] flex mx-auto'>
                   {/* Tags Display */}
                   {(item.tags?.ingredients?.length ||
                     item.tags?.flavors?.length ||

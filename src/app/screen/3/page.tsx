@@ -72,7 +72,7 @@ export default function Screen3() {
 
 
         {/* Grid for all items */}
-        <div className='absolute top-[8vw] px-[2vw] grid z-30 grid-cols-4 gap-[3vw]'>
+        <div className='absolute top-[8vw]  grid z-30 grid-cols-4 gap-[3vw] pl-[2vw] pr-[4vw]'>
 
           {allItems.map((item, idx) => (
             <div key={item.id} className='group relative'>

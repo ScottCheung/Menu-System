@@ -4,7 +4,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Edit3, Monitor, Database, RotateCcw, Sparkles, ArrowRight } from 'lucide-react';
+import { Edit3, Monitor, Database, RotateCcw, Sparkles, ArrowRight, ChefHat } from 'lucide-react';
 
 export default function Home() {
   const enterFullscreen = () => {
@@ -22,7 +22,7 @@ export default function Home() {
       <div className='absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-amber-600/10 rounded-full blur-[120px] pointer-events-none'></div>
       <div className='absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-600/10 rounded-full blur-[120px] pointer-events-none'></div>
 
-      <div className='max-w-6xl w-full mx-auto px-6 py-20 relative z-10'>
+      <div className='max-w-7xl w-full mx-auto px-6 py-20 relative z-10'>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,28 +50,55 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <div className='grid md:grid-cols-2 gap-8 mb-20'>
+        <div className='grid md:grid-cols-3 gap-6 mb-20'>
+          {/* Showcase Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Link href='/menu'>
+              <div className='group relative h-full bg-white/5 backdrop-blur-xl rounded-4xl p-8 border border-white/10 hover:border-emerald-500/50 transition-all duration-500 overflow-hidden'>
+                <div className='absolute inset-0 bg-linear-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+                <div className='relative z-10'>
+                  <div className='w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 border border-emerald-500/20 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-500'>
+                    <ChefHat className='text-emerald-500 w-7 h-7' />
+                  </div>
+                  <h2 className='text-2xl font-bold mb-4 group-hover:text-emerald-500 transition-colors'>
+                    Menu Showcase
+                  </h2>
+                  <p className='text-gray-400 text-base leading-relaxed mb-8'>
+                    Browse our gourmet collection with high-fidelity visuals and detailed culinary information.
+                  </p>
+                  <div className='flex items-center text-white font-semibold group-hover:gap-3 gap-2 transition-all mt-auto'>
+                    View Menu <ArrowRight size={18} className='text-emerald-500' />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
           {/* Editor Card */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <Link href='/editor'>
-              <div className='group relative h-full bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-10 border border-white/10 hover:border-amber-500/50 transition-all duration-500 overflow-hidden'>
+              <div className='group relative h-full bg-white/5 backdrop-blur-xl rounded-4xl p-8 border border-white/10 hover:border-amber-500/50 transition-all duration-500 overflow-hidden'>
                 <div className='absolute inset-0 bg-linear-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
                 <div className='relative z-10'>
-                  <div className='w-16 h-16 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-8 border border-amber-500/20 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-500'>
-                    <Edit3 className='text-amber-500 w-8 h-8' />
+                  <div className='w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-8 border border-amber-500/20 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-500'>
+                    <Edit3 className='text-amber-500 w-7 h-7' />
                   </div>
-                  <h2 className='text-3xl font-bold mb-4 group-hover:text-amber-500 transition-colors'>
+                  <h2 className='text-2xl font-bold mb-4 group-hover:text-amber-500 transition-colors'>
                     Menu Editor
                   </h2>
-                  <p className='text-gray-400 text-lg leading-relaxed mb-8'>
+                  <p className='text-gray-400 text-base leading-relaxed mb-8'>
                     Modify descriptions, adjust pricing, and customize your visual themes with our real-time editor.
                   </p>
-                  <div className='flex items-center text-white font-semibold group-hover:gap-3 gap-2 transition-all'>
-                    Open Editor <ArrowRight size={20} className='text-amber-500' />
+                  <div className='flex items-center text-white font-semibold group-hover:gap-3 gap-2 transition-all mt-auto'>
+                    Open Editor <ArrowRight size={18} className='text-amber-500' />
                   </div>
                 </div>
               </div>
@@ -80,25 +107,25 @@ export default function Home() {
 
           {/* Screen Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <Link href='/screen/1' onClick={enterFullscreen}>
-              <div className='group relative h-full bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-10 border border-white/10 hover:border-orange-500/50 transition-all duration-500 overflow-hidden'>
+              <div className='group relative h-full bg-white/5 backdrop-blur-xl rounded-4xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-500 overflow-hidden'>
                 <div className='absolute inset-0 bg-linear-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
                 <div className='relative z-10'>
-                  <div className='w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-8 border border-orange-500/20 group-hover:scale-110 group-hover:bg-orange-500/20 transition-all duration-500'>
-                    <Monitor className='text-orange-500 w-8 h-8' />
+                  <div className='w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-8 border border-orange-500/20 group-hover:scale-110 group-hover:bg-orange-500/20 transition-all duration-500'>
+                    <Monitor className='text-orange-500 w-7 h-7' />
                   </div>
-                  <h2 className='text-3xl font-bold mb-4 group-hover:text-orange-500 transition-colors'>
+                  <h2 className='text-2xl font-bold mb-4 group-hover:text-orange-500 transition-colors'>
                     Display Screen
                   </h2>
-                  <p className='text-gray-400 text-lg leading-relaxed mb-8'>
+                  <p className='text-gray-400 text-base leading-relaxed mb-8'>
                     Experience high-impact, fullscreen visual menus designed for professional kitchen displays.
                   </p>
-                  <div className='flex items-center text-white font-semibold group-hover:gap-3 gap-2 transition-all'>
-                    Launch Display <ArrowRight size={20} className='text-orange-500' />
+                  <div className='flex items-center text-white font-semibold group-hover:gap-3 gap-2 transition-all mt-auto'>
+                    Launch Display <ArrowRight size={18} className='text-orange-500' />
                   </div>
                 </div>
               </div>
