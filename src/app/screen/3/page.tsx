@@ -16,7 +16,7 @@ export default function Screen3() {
   useEffect(() => {
     if (!isLoaded) {
       setCategories(menuData.categories as any);
-    }
+    } 
     setMounted(true);
 
     // Set CSS variable for responsive scaling based on viewport
