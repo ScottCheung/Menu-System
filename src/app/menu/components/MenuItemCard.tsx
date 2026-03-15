@@ -34,7 +34,7 @@ export default function MenuItemCard({ item, categoryImage }: MenuItemCardProps)
             price={item.price || 0}
             className='z-10 scale-60'
           />
-          <div className='w-full h-full bg-black absolute blur-xl z-0'></div>
+          <div className='w-full h-full bg-white/3 absolute blur-xl z-0'></div>
         </div>
       </div>
 

@@ -24,7 +24,7 @@ export default function ScreenLayout({
   };
 
   const currentPage = getCurrentPage();
-  const totalPages = 3; // 总共有3个页面
+  const totalPages = 4; // 总共有4个页面
 
   // 处理鼠标移动
   const handleMouseMove = useCallback(() => {
