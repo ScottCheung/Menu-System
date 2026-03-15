@@ -8,7 +8,7 @@ import { PriceDisplay } from '@/app/editor/components/PriceDisplay';
 import { MenuItem } from '@/types/menu';
 import { motion } from 'framer-motion';
 import { AutoScroll } from '@/components/UI/AutoScroll/AutoScroll';
-import menuData from '@/../data/menu.json';
+import menuData from '../../../../data/menu.json';
 
 export default function Screen2() {
   const { categories, isLoaded, setCategories } = useMenuStore();
