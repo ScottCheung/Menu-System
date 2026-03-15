@@ -368,19 +368,9 @@ export default function EditorPage() {
               return (
                 <div
                   key={category.id}
-                  className='bg-panel/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-border'
+                  className='bg-panel/80 backdrop-blur-sm rounded-[48px]  shadow-lg overflow-hidden border border-border'
                 >
-                  <div className='bg-primary px-6 py-4 flex items-center justify-between'>
-                    <div>
-                      <h2 className='text-2xl font-bold text-primary-foreground'>
-                        {category.name}
-                      </h2>
-                      {category.description && (
-                        <p className='text-sm text-primary-foreground/80 mt-1'>
-                          {category.description}
-                        </p>
-                      )}
-                    </div>
+                  <div className='bg-primary relative p-card flex flex-col w-full items-start justify-start'>
                     <button
                       onClick={() => {
                         layoutActions.openDrawer({
@@ -403,21 +393,28 @@ export default function EditorPage() {
                           ),
                         });
                       }}
-                      className='px-3 py-1 bg-primary-foreground/20 hover:bg-primary-foreground/30 rounded-lg text-primary-foreground text-sm transition-colors'
+                      className='px-3 py-0.5 absolute right-8 top-8 bg-primary-foreground/20 hover:bg-primary-foreground/30 rounded-lg text-primary-foreground text-sm transition-colors'
                     >
                       Edit Category
                     </button>
+                    <div className='flex w-full justify-start gap-3'>
+                      <h2 className='text-2xl font-bold text-primary-foreground'>
+                        {category.name}
+                      </h2>
+                    </div>
+                    {category.description && (
+                      <p className='text-sm text-primary-foreground/80 mt-1'>
+                        {category.description}
+                      </p>
+                    )}
                   </div>
-                  <div className='divide-y divide-border'>
+                  <div className='p-4 '>
                     {categoryItems.map((item, index) => (
                       <motion.div
                         key={item.id}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className={`p-6 hover:bg-primary/5 transition-colors ${
-                          item.isModified ? 'bg-primary/10' : ''
-                        }`}
                       >
                         <MenuItemCard
                           item={item}

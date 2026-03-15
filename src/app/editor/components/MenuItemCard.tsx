@@ -5,6 +5,7 @@ import { TagDisplay } from './TagDisplay';
 import { Badge } from '@/components/UI/badge';
 import { Button } from '@/components/UI/Button';
 import { Edit, RotateCcw, Trash2 } from 'lucide-react';
+import { PriceDisplay } from './PriceDisplay';
 
 interface MenuItemCardProps {
   item: MenuItem;
@@ -22,20 +23,19 @@ export function MenuItemCard({
   // Calculate display price
   const getPriceDisplay = () => {
     const basePrice = item.price || 0;
-    
+
     if (item.options && item.options.length > 0) {
-      const optionPrices = item.options
-        .map((opt) => opt.price || 0);
-      
+      const optionPrices = item.options.map((opt) => opt.price || 0);
+
       // Check if all option prices are the same
-      const allSame = optionPrices.every(p => p === optionPrices[0]);
-      
+      const allSame = optionPrices.every((p) => p === optionPrices[0]);
+
       if (allSame) {
         // All options have same additional price
         const finalPrice = basePrice + optionPrices[0];
         return {
           price: finalPrice,
-          showFrom: false
+          showFrom: false,
         };
       } else {
         // Different prices, show lowest
@@ -43,14 +43,14 @@ export function MenuItemCard({
         const lowestFinalPrice = basePrice + lowestOptionPrice;
         return {
           price: lowestFinalPrice,
-          showFrom: true
+          showFrom: true,
         };
       }
     }
-    
+
     return {
       price: basePrice,
-      showFrom: false
+      showFrom: false,
     };
   };
 
@@ -58,97 +58,113 @@ export function MenuItemCard({
   const hasOptions = item.options && item.options.length > 0;
 
   return (
-    <div className='flex items-start gap-4'>
-      {/* Image */}
-      {item.image && (
-        <div className='flex-shrink-0'>
-          <img
-            src={item.image}
-            alt={item.name}
-            className='w-24 h-24 object-contain rounded-lg'
-          />
-        </div>
-      )}
-
-      <div className='flex-1'>
-        <div className='flex items-center gap-3 mb-2'>
-          <h3 className='text-lg font-semibold text-ink-primary'>{item.name}</h3>
-          {item.isModified && (
-            <Badge variant='warning'>Modified</Badge>
+    <div className='bg-panel/60 relative group  rounded-card  overflow-hidden hover:bg-primary/10 transition-all duration-300'>
+      {/* Header Section */}
+      <div className='p-card '>
+        <div className='flex items-start gap-4'>
+          {/* Image */}
+          {item.image && (
+            <div className='flex-shrink-0'>
+              <img
+                src={item.image}
+                alt={item.name}
+                className='w-20 h-20 object-cover rounded-lg ring-2 ring-border/30'
+              />
+            </div>
           )}
-        </div>
 
-        {/* Tags */}
-        {item.tags && <TagDisplay tags={item.tags} />}
+          <div className='flex-1 min-w-0'>
+            <div className='flex items-start justify-between w-full mb-2'>
+              <div className='flex items-center  gap-2'>
+                <h3 className='text-xl font-bold text-ink-primary truncate'>
+                  {item.name}
+                </h3>
+                {item.isModified && (
+                  <Badge variant='warning' className='flex-shrink-0'>
+                    Modified
+                  </Badge>
+                )}
+              </div>
+              <div className='flex items-baseline gap-1'>
+                <span className=' font-bold text text-primary'>
+                  {showFrom && 'from'}
+                </span>
 
-        {item.description && (
-          <p className='text-sm text-ink-secondary mb-2'>{item.description}</p>
-        )}
+                <PriceDisplay
+                  price={displayPrice}
+                  className='text-4xl text-primary'
+                />
+              </div>
+            </div>
 
-        {/* Options Display */}
-        {hasOptions && (
-          <div className='mt-2 space-y-1'>
-            {item.options!.map((option, idx) => {
-              const basePrice = item.price || 0;
-              const optionPrice = option.price || 0;
-              return (
-                <div key={idx} className='flex items-center gap-2 text-sm'>
-                  <Badge variant='neutral'>{option.name}</Badge>
-                  {optionPrice > 0 && (
-                    <span className='text-ink-secondary'>
-                      +${optionPrice.toFixed(2)}
-                    </span>
-                  )}
-                  {option.tags && option.tags.ingredients.length > 0 && (
-                    <span className='text-xs text-ink-secondary'>
-                      ({option.tags.ingredients.join(', ')})
-                    </span>
-                  )}
-                </div>
-              );
-            })}
+            {/* Options Grid */}
+            {hasOptions && (
+              <div className='flex flex-wrap gap-4'>
+                {item.options!.map((option, idx) => {
+                  const basePrice = item.price || 0;
+                  const optionPrice = option.price || 0;
+                  const finalPrice = basePrice + optionPrice;
+
+                  return (
+                    <div
+                      key={idx}
+                      className='bg-panel  rounded-lg p-3  bg-primary/10 transition-all duration-200 group'
+                    >
+                      <div className='flex items-baseline justify-start gap-4 mb-2'>
+                        <div className='text-ink-primary font-semibold text-lg'>
+                          {option.name}
+                        </div>
+                        <PriceDisplay
+                          price={finalPrice}
+                          className='text-2xl text-primary'
+                        />
+                      </div>
+
+                      {/* Tags for each option */}
+                      {option.tags && <TagDisplay tags={option.tags} />}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Tags - only show if item has no options */}
+            {item.tags && !hasOptions && <TagDisplay tags={item.tags} />}
+            {item.description && (
+              <p className='text-ink-primary text-base mb-2 line-clamp-2'>
+                {item.description}
+              </p>
+            )}
+            {item.modifiedFields && item.modifiedFields.length > 0 && (
+              <p className='text-xs text-ink-secondary/50 mt-2'>
+                Modified: {item.modifiedFields.join(', ')}
+              </p>
+            )}
           </div>
-        )}
-
-        {item.modifiedFields && item.modifiedFields.length > 0 && (
-          <p className='text-xs text-ink-secondary mt-2'>
-            Modified fields: {item.modifiedFields.join(', ')}
-          </p>
-        )}
-      </div>
-
-      <div className='flex items-center gap-4'>
-        <span className='text-2xl font-bold text-ink-primary'>
-          {showFrom ? `from $${displayPrice.toFixed(2)}` : `$${displayPrice.toFixed(2)}`}
-        </span>
-        <div className='flex gap-2'>
-          <Button
-            onClick={onEdit}
-            variant='secondary'
-            size='sm'
-            Icon={Edit}
-          >
-            Edit
-          </Button>
-          {item.isModified && (
-            <Button
-              onClick={onReset}
-              variant='outline'
-              size='sm'
-              Icon={RotateCcw}
-            >
-              Reset
-            </Button>
-          )}
-          <Button
-            onClick={onDelete}
-            variant='destructive'
-            size='sm'
-            Icon={Trash2}
-          >
-            Delete
-          </Button>
         </div>
+      </div>
+      <div className='flex gap-2 absolute bottom-6 right-6 group-hover:opacity-100 opacity-0'>
+        <Button onClick={onEdit} variant='secondary' size='sm' Icon={Edit}>
+          Edit
+        </Button>
+        {item.isModified && (
+          <Button
+            onClick={onReset}
+            variant='outline'
+            size='sm'
+            Icon={RotateCcw}
+          >
+            Reset
+          </Button>
+        )}
+        <Button
+          onClick={onDelete}
+          variant='destructive'
+          size='sm'
+          Icon={Trash2}
+        >
+          Delete
+        </Button>
       </div>
     </div>
   );

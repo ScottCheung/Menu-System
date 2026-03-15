@@ -56,7 +56,7 @@ export function EditorHeader({
             </div>
           </div>
           <div className='flex gap-3'>
-            <Link href='/screen'>
+            <Link href='/screen/1'>
               <Button variant='secondary' Icon={Monitor}>
                 Display Screen
               </Button>

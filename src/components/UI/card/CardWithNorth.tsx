@@ -39,7 +39,7 @@ const CardWithNorth: React.FC<CardWithNorthProps> = ({
             ref={titleRef}
             className={`relative h-[30px] items-end flex z-10 pl-6  bg-panel group-hover:bg-primary/20 heading-fourth rounded-tl-3xl ${tabClassName}`}
           >
-            <div className='-mb-2 font-bold text-primary '>{title}</div>
+            <div className='-mb-3 font-bold text-primary text-lg '>{title}</div>
           </h3>
           <svg
             width='60'
