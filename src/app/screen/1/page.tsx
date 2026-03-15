@@ -120,14 +120,14 @@ Dumpling
               </div>
             </div>
               
-              <div className='flex flex-wrap justify-center gap-[0.8vw]'>
+              <div className='flex flex-wrap justify-center gap-[0.8vw] z-40' >
                 {/* All Tags display */}
-                {dumplings.items[0]?.tags?.ingredients?.map((tag) => (
+                {/* {dumplings.items[0]?.tags?.ingredients?.map((tag) => (
                   <span key={tag} className='px-[0.8vw] py-[0.1vw] bg-white/10 text-white/60 rounded-[0.4vw] text-[1vw]'>{tag}</span>
                 ))}
                 {dumplings.items[0]?.tags?.flavors?.map((tag) => (
                   <span key={tag} className='px-[0.8vw] py-[0.1vw] bg-[#ffd700]/10 text-[#ffd700] rounded-[0.4vw] text-[1vw]'>{tag}</span>
-                ))}
+                ))} */}
                 {dumplings.items[0]?.tags?.restrictions?.map((tag) => (
                   <span key={tag} className='px-[0.8vw] py-[0.1vw] bg-[#ff9500]/10 text-[#ff9500] rounded-[0.4vw] text-[1vw]'>{tag}</span>
                 ))}

@@ -2,7 +2,7 @@
 
 'use client';
 
-import { HomeIcon } from 'lucide-react';
+import { HomeIcon, ChevronUp, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState, useCallback } from 'react';
@@ -68,49 +68,49 @@ export default function ScreenLayout({
 
       {/* 导航控件 */}
       <div
-        className={`fixed top-1/2 right-8 -translate-y-1/2 z-50 transition-all duration-500 ${
+        className={`fixed top-1/2 right-[3vh] -translate-y-1/2 z-50 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
           showNav ?
             'opacity-100 translate-x-0'
-          : 'opacity-0 translate-x-8 pointer-events-none'
+          : 'opacity-0 translate-x-[4vh] pointer-events-none'
         }`}
       >
         <div
-          className='relative rounded-2xl p-4 backdrop-blur-xl'
+          className='relative rounded-[2.5vh] p-[1.2vh] backdrop-blur-3xl'
           style={{
             background:
-              'linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 149, 0, 0.1) 100%)',
-            border: '1px solid rgba(255, 215, 0, 0.3)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+              'linear-gradient(180deg, rgba(20, 20, 20, 0.7) 0%, rgba(30, 30, 30, 0.8) 100%)',
+            border: '1px solid rgba(255, 215, 0, 0.25)',
+            boxShadow: '0 2vh 5vh -1vh rgba(0, 0, 0, 0.8), inset 0 0 2vh rgba(255, 215, 0, 0.05)',
           }}
         >
           {/* 页面指示器 */}
-          <div className='flex flex-col gap-3'>
+          <div className='flex flex-col gap-[1.5vh]'>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
               <button
                 key={page}
                 onClick={() => goToPage(page)}
-                className={`group relative w-12 h-12 rounded-xl transition-all duration-300 ${
-                  currentPage === page ? 'scale-110' : 'hover:scale-105'
+                className={`group relative w-[5.5vh] h-[5.5vh] rounded-[1.5vh] flex items-center justify-center transition-all duration-500 ease-out ${
+                  currentPage === page ? 'scale-110' : 'hover:scale-110 active:scale-95'
                 }`}
                 style={{
                   background:
                     currentPage === page ?
                       'linear-gradient(135deg, #ffd700 0%, #ff9500 100%)'
-                    : 'rgba(255, 255, 255, 0.1)',
+                    : 'rgba(255, 255, 255, 0.05)',
                   border:
-                    currentPage === page ? 'none' : (
-                      '1px solid rgba(255, 215, 0, 0.2)'
-                    ),
+                    currentPage === page ?
+                      '1px solid rgba(255, 215, 0, 0.5)'
+                    : '1px solid rgba(255, 255, 255, 0.1)',
                   boxShadow:
                     currentPage === page ?
-                      '0 4px 20px rgba(255, 215, 0, 0.5)'
+                      '0 0.8vh 2.5vh rgba(255, 215, 0, 0.4), inset 0 0 1vh rgba(255, 255, 255, 0.3)'
                     : 'none',
                 }}
               >
                 <span
-                  className={`text-lg font-black ${
-                    currentPage === page ? 'text-black' : (
-                      'text-white/70 group-hover:text-white'
+                  className={`text-[2.2vh] font-black transition-colors duration-300 ${
+                    currentPage === page ? 'text-[#1a1a1a]' : (
+                      'text-white/40 group-hover:text-white'
                     )
                   }`}
                 >
@@ -119,13 +119,14 @@ export default function ScreenLayout({
 
                 {/* Hover tooltip */}
                 <div
-                  className='absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none'
+                  className='absolute right-full mr-[2vh] top-1/2 -translate-y-1/2 px-[1.5vh] py-[0.8vh] rounded-[1vh] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-x-[1vh] group-hover:translate-x-0'
                   style={{
-                    background: 'rgba(0, 0, 0, 0.9)',
+                    background: 'rgba(0, 0, 0, 0.85)',
                     border: '1px solid rgba(255, 215, 0, 0.3)',
+                    backdropFilter: 'blur(10px)',
                   }}
                 >
-                  <span className='text-sm text-white font-medium'>
+                  <span className='text-[1.4vh] text-white font-bold tracking-wider'>
                     第 {page} 页
                   </span>
                 </div>
@@ -133,39 +134,39 @@ export default function ScreenLayout({
             ))}
           </div>
 
-          {/* 导航箭头 */}
-          <div className='mt-4 pt-4 border-t border-white/10 flex flex-col gap-2'>
+          {/* 导航箭头 & 首页 */}
+          <div className='mt-[2vh] pt-[2vh] border-t border-white/10 flex flex-col gap-[1.2vh]'>
             <button
               onClick={() => goToPage(currentPage - 1)}
               disabled={currentPage === 1}
-              className='w-12 h-10 rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100'
+              className='w-[5.5vh] h-[4.5vh] rounded-[1.2vh] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 group'
               style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                border: '1px solid rgba(255, 215, 0, 0.2)',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
               }}
             >
-              <span className='text-white text-lg'>↑</span>
+              <ChevronUp className='w-[2.4vh] h-[2.4vh] text-white/60 group-hover:text-white transition-colors' />
             </button>
             <button
               onClick={() => goToPage(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className='w-12 h-10 rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100'
+              className='w-[5.5vh] h-[4.5vh] rounded-[1.2vh] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 group'
               style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                border: '1px solid rgba(255, 215, 0, 0.2)',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
               }}
             >
-              <span className='text-white text-lg'>↓</span>
+              <ChevronDown className='w-[2.4vh] h-[2.4vh] text-white/60 group-hover:text-white transition-colors' />
             </button>
             <Link
               href={'/'}
-              className='w-12 h-10 rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100'
+              className='w-[5.5vh] h-[5.5vh] rounded-[1.5vh] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 group mt-[0.5vh]'
               style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                border: '1px solid rgba(255, 215, 0, 0.2)',
+                background: 'rgba(255, 215, 0, 0.1)',
+                border: '1px solid rgba(255, 215, 0, 0.3)',
               }}
             >
-              <HomeIcon />
+              <HomeIcon className='w-[2.4vh] h-[2.4vh] text-gold group-hover:text-white transition-colors' style={{ color: '#ffd700' }} />
             </Link>
           </div>
         </div>
