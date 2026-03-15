@@ -122,8 +122,7 @@ export default function Home() {
                     Display Screen
                   </h2>
                   <p className='text-gray-400 text-base leading-relaxed mb-8'>
-                    Experience high-impact, fullscreen visual menus designed for professional kitchen displays.
-                  </p>
+                    Display multi-screen menu boards with adaptive layouts that scale across any 16:9 resolution.                </p>
                   <div className='flex items-center text-white font-semibold group-hover:gap-3 gap-2 transition-all mt-auto'>
                     Launch Display <ArrowRight size={18} className='text-orange-500' />
                   </div>
