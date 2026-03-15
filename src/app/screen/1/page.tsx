@@ -7,13 +7,16 @@ import { useMenuStore } from '@/lib/store/menu-store';
 import { PriceDisplay } from '@/app/editor/components/PriceDisplay';
 import { motion } from 'framer-motion';
 import { AutoScroll } from '@/components/UI/AutoScroll/AutoScroll';
+import menuData from '@/../data/menu.json';
 
 export default function Screen1() {
-  const { categories, isLoaded, loadFromJSON } = useMenuStore();
+  const { categories, isLoaded, setCategories } = useMenuStore();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    loadFromJSON();
+    if (!isLoaded) {
+      setCategories(menuData.categories as any);
+    }
     setMounted(true);
 
     // Set CSS variable for responsive scaling based on viewport
@@ -29,7 +32,7 @@ export default function Screen1() {
     updateScale();
     window.addEventListener('resize', updateScale);
     return () => window.removeEventListener('resize', updateScale);
-  }, [loadFromJSON]);
+  }, [isLoaded, setCategories]);
 
   if (!isLoaded) {
     return (

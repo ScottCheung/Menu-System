@@ -18,6 +18,7 @@ interface MenuStore {
   saveChanges: () => Promise<void>;
   getModifiedCount: () => number;
   getOriginalItem: (categoryId: string, itemId: string) => MenuItem | undefined;
+  setCategories: (categories: MenuCategory[]) => void;
   getAllItems: () => MenuItem[];
 }
 
@@ -26,7 +27,6 @@ export const useMenuStore = create<MenuStore>((set, get) => ({
   history: [],
   isLoaded: false,
   originalCategories: [],
-
   loadFromJSON: async () => {
     if (typeof window === 'undefined') return;
     
@@ -53,6 +53,15 @@ export const useMenuStore = create<MenuStore>((set, get) => ({
         isLoaded: true 
       });
     }
+  },
+
+  setCategories: (categories: MenuCategory[]) => {
+    set({ 
+      categories: categories || [],
+      originalCategories: JSON.parse(JSON.stringify(categories || [])),
+      history: [],
+      isLoaded: true 
+    });
   },
 
   getAllItems: () => {
