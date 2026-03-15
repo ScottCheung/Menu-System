@@ -9,6 +9,7 @@ import { MenuItem } from '@/types/menu';
 import { motion } from 'framer-motion';
 import { AutoScroll } from '@/components/UI/AutoScroll/AutoScroll';
 import menuData from '../../../../data/menu.json';
+import Image from 'next/image';
 
 export default function Screen2() {
   const { categories, isLoaded, setCategories } = useMenuStore();
@@ -151,12 +152,14 @@ export default function Screen2() {
                         duration: 100,
                         repeat: Infinity,
                       }}
-                      className='relative overflow-hidden w-full  h-full'
+                      className='relative overflow-hidden w-full aspect-square'
                     >
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.name}
-                        className='w-full z-30 h-full object-contain shadow-xl'
+                        fill
+                        sizes='15vw'
+                        className='z-30 object-contain shadow-xl'
                       />
                     </motion.div>
                   )}

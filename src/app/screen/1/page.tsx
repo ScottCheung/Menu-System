@@ -8,6 +8,7 @@ import { PriceDisplay } from '@/app/editor/components/PriceDisplay';
 import { motion } from 'framer-motion';
 import { AutoScroll } from '@/components/UI/AutoScroll/AutoScroll';
 import menuData from '../../../../data/menu.json';
+import Image from 'next/image';
 
 export default function Screen1() {
   const { categories, isLoaded, setCategories } = useMenuStore();
@@ -96,18 +97,20 @@ export default function Screen1() {
               <div className='relative w-full max-w-[32vw] aspect-square mx-auto'>
                 {dumplings.items[0]?.image && (
                   <motion.div
-
-                    animate={{ y: [-20, 20, -20], scale: [1.3, 1.5, 1.3], }}
+                    animate={{ y: [-20, 20, -20], scale: [1.3, 1.5, 1.3] }}
                     transition={{
                       duration: 5,
                       repeat: Infinity,
                     }}
                     className='relative w-full h-full'
                   >
-                    <img
+                    <Image
                       src={dumplings.items[0].image}
                       alt={dumplings.items[0].name}
-                      className='w-full h-full object-contain filter drop-shadow-[0_30px_60px_rgba(256,256,156,0.3)]'
+                      fill
+                      priority
+                      sizes='32vw'
+                      className='object-contain filter drop-shadow-[0_30px_60px_rgba(256,256,156,0.3)]'
                     />
                   </motion.div>
                 )}
@@ -157,9 +160,9 @@ export default function Screen1() {
             </div>
             {dumplings.items.map((item) => (
               <div key={item.id} className='flex items-center group'>
-                <div className='w-[5vw] h-[5vw] shrink-0 mr-[1.5vw] bg-white/5 rounded-full p-[0.3vw]'>
+                <div className='w-[5vw] h-[5vw] shrink-0 mr-[1.5vw] bg-white/5 rounded-full p-[0.3vw] relative overflow-hidden'>
                   {item.image && (
-                    <img src={item.image} alt={item.name} className='w-full h-full object-contain ' />
+                    <Image src={item.image} alt={item.name} fill sizes='5vw' className='object-contain p-[0.3vw]' />
                   )}
                 </div>
                 <div className='flex-1 flex flex-col'>
@@ -199,9 +202,9 @@ export default function Screen1() {
 
             {sideDish.items.map((item) => (
               <div key={item.id} className='flex items-center group'>
-                <div className='w-[5vw] h-[5vw] shrink-0 mr-[1.5vw] bg-white/5 rounded-full p-[0.3vw]'>
+                <div className='w-[5vw] h-[5vw] shrink-0 mr-[1.5vw] bg-white/5 rounded-full p-[0.3vw] relative overflow-hidden'>
                   {item.image && (
-                    <img src={item.image} alt={item.name} className='w-full h-full object-contain transition-transform group-hover:scale-110' />
+                    <Image src={item.image} alt={item.name} fill sizes='5vw' className='object-contain p-[0.3vw] transition-transform group-hover:scale-110' />
                   )}
                 </div>
                 <div className='flex-1 flex flex-col'>

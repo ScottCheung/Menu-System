@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { MenuItem } from '@/types/menu';
 import { TagSelector } from './TagSelector';
+import Image from 'next/image';
 
 interface AddItemModalProps {
   isOpen: boolean;
@@ -116,11 +117,13 @@ export function AddItemModal({
               )}
             </div>
             {newItemForm.image && (
-              <div className='mt-2'>
-                <img
+              <div className='mt-2 relative w-32 h-32'>
+                <Image
                   src={newItemForm.image}
                   alt='预览'
-                  className='w-32 h-32 object-cover rounded-lg border border-amber-200'
+                  fill
+                  sizes='128px'
+                  className='object-cover rounded-lg border border-amber-200'
                 />
               </div>
             )}
@@ -175,7 +178,7 @@ export function AddItemModal({
           <div className='flex gap-3 pt-4'>
             <button
               onClick={onSubmit}
-              className='flex-1 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-md hover:shadow-lg font-medium'
+              className='flex-1 px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-md hover:shadow-lg font-medium'
             >
               ✓ 添加菜品
             </button>

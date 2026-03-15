@@ -7,6 +7,7 @@ import { useMenuStore } from '@/lib/store/menu-store';
 import { PriceDisplay } from '@/app/editor/components/PriceDisplay';
 import { motion } from 'framer-motion';
 import menuData from '../../../../data/menu.json';
+import Image from 'next/image';
 
 export default function Screen4() {
   const { categories, isLoaded, setCategories } = useMenuStore();
@@ -108,12 +109,14 @@ function CategorySection({ category }: { category: any }) {
       <div className='flex flex-col gap-[0.7vw]'>
         {category.items.map((item: any) => (
           <div key={item.id} className='flex items-center group'>
-            <div className='w-[4vw] h-[4vw] shrink-0 mr-[0.5vw]  rounded-full '>
+            <div className='w-[4vw] h-[4vw] shrink-0 mr-[0.5vw] rounded-full relative overflow-hidden'>
               {item.image && (
-                <img
+                <Image
                   src={item.image}
                   alt={item.name}
-                  className='w-full h-full object-contain transition-transform '
+                  fill
+                  sizes='4vw'
+                  className='object-contain transition-transform'
                 />
               )}
             </div>

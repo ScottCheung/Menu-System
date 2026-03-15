@@ -2,6 +2,7 @@
 
 import { MenuItem } from '@/types/menu';
 import { TagDisplay } from './TagDisplay';
+import Image from 'next/image';
 import { Badge } from '@/components/UI/badge';
 import { Button } from '@/components/UI/Button';
 import { Edit, RotateCcw, Trash2 } from 'lucide-react';
@@ -64,11 +65,13 @@ export function MenuItemCard({
         <div className='flex items-start gap-4'>
           {/* Image */}
           {item.image && (
-            <div className='flex-shrink-0'>
-              <img
+            <div className='flex-shrink-0 relative w-20 h-20'>
+              <Image
                 src={item.image}
                 alt={item.name}
-                className='w-20 h-20 object-cover rounded-lg ring-2 ring-border/30'
+                fill
+                sizes='80px'
+                className='object-cover rounded-lg ring-2 ring-border/30'
               />
             </div>
           )}

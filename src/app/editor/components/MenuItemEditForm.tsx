@@ -2,6 +2,7 @@
 
 import { MenuItem, MenuOption, MenuTags } from '@/types/menu';
 import { TagSelector } from './TagSelector';
+import Image from 'next/image';
 import { InputField, Input } from '@/components/UI/input';
 import { Button } from '@/components/UI/Button';
 import { Card, CardContent } from '@/components/UI/card';
@@ -152,11 +153,13 @@ export function MenuItemEditForm({
           )}
         </div>
         {editForm.image && (
-          <div className='mt-2'>
-            <img
+          <div className='mt-2 relative w-32 h-32'>
+            <Image
               src={editForm.image}
               alt='预览'
-              className='w-32 h-32 object-cover rounded-lg border border-amber-200'
+              fill
+              sizes='128px'
+              className='object-cover rounded-lg border border-amber-200'
             />
           </div>
         )}
