@@ -42,6 +42,16 @@ export function EditorHeader({
       setIsSyncing(false);
     }
   };
+  const enterFullscreen = () => {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen().catch((err) => {
+        console.error(
+          `Error attempting to enable full-screen mode: ${err.message}`,
+        );
+      });
+    }
+  };
 
   return (
     <header className='bg-panel/80 backdrop-blur-sm border-b border-border sticky top-0 z-10'>
@@ -56,7 +66,7 @@ export function EditorHeader({
             </div>
           </div>
           <div className='flex gap-3'>
-            <Link href='/screen/1'>
+            <Link href='/screen/1' onClick={enterFullscreen}>
               <Button variant='secondary' Icon={Monitor}>
                 Display Screen
               </Button>
