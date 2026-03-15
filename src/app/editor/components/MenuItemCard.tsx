@@ -114,10 +114,7 @@ export function MenuItemCard({
                         <div className='text-ink-primary font-semibold text-lg'>
                           {option.name}
                         </div>
-                        <PriceDisplay
-                          price={finalPrice}
-                          className='text-2xl text-primary'
-                        />
+             
                       </div>
 
                       {/* Tags for each option */}

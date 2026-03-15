@@ -18,6 +18,7 @@ export interface MenuItem {
   options?: MenuOption[];
   image?: string;
   tags?: MenuTags;
+  category?: string;
   isModified?: boolean;
   modifiedFields?: string[];
 }

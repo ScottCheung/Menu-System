@@ -1,8 +1,5 @@
 /** @format */
 
-@layer utilities;
-
-/* Base Configuration */
 @import './config/palette.css';
 @import './config/backgrounds.css';
 @import './config/text.css';
@@ -16,3 +13,5 @@
 @import './costomise/text.css';
 @import './costomise/costmise.css';
 @import './costomise/button.css';
+
+@layer utilities;
