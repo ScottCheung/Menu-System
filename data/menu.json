@@ -326,9 +326,9 @@
         },
         {
           "id": "27",
-          "name": "Steam Bao",
+          "name": "Gua Bao",
           "price": 3,
-          "image": "/images/Side Dish/Pork Belly Steam Bao.png",
+          "image": "/images/Side Dish/Steam Bao.png",
           "tags": {
             "ingredients": [
               "Pork Belly or Chicken",
@@ -627,7 +627,7 @@
           "id": "15",
           "name": "Satay Chicken Rice Bowl",
           "price": 14.9,
-          "image": "/images/Rice Bowls/Mushroom Satay Chicken Rice Bowl.png",
+          "image": "/images/Rice Bowls/Satay Chicken Rice Bowl.png",
           "tags": {
             "ingredients": [
               "Chicken",
@@ -705,7 +705,7 @@
               "Nut-free"
             ]
           },
-          "image": "/images/Rice Bowls/XinJiang Chicken Rice Bowl .png",
+          "image": "/images/Rice Bowls/XinJiang Chicken Rice Bowl.png",
           "id": "31",
           "isModified": false,
           "modifiedFields": [],
@@ -1239,5 +1239,5 @@
       "modifiedFields": []
     }
   ],
-  "lastModified": "2026-03-20T18:28:31.969Z"
+  "lastModified": "2026-03-20T18:42:54.522Z"
 }
