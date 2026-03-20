@@ -449,6 +449,27 @@
             ],
             "restrictions": []
           }
+        },
+        {
+          "name": "Prawn Cutlet",
+          "price": 2.5,
+          "description": "",
+          "tags": {
+            "ingredients": [
+              "Pork"
+            ],
+            "flavors": [
+              "Savory"
+            ],
+            "restrictions": [
+              "Gluten-free"
+            ]
+          },
+          "image": "/images/Side Dish/Prawn Cutlet.jpeg",
+          "id": "32",
+          "isModified": false,
+          "modifiedFields": [],
+          "options": []
         }
       ],
       "isModified": false,
@@ -462,7 +483,7 @@
         {
           "id": "8",
           "name": "Tibetan Beef Rice Bowl",
-          "price": 16.5,
+          "price": 15.9,
           "image": "/images/Rice Bowls/Tibetan Beef.png",
           "tags": {
             "ingredients": [
@@ -483,7 +504,7 @@
           "id": "9",
           "name": "Kun Pao Chicken Rice Bowl",
           "description": "",
-          "price": 15.5,
+          "price": 14.9,
           "image": "/images/Rice Bowls/Kun Pao Chicken Rice Bowl.png",
           "tags": {
             "ingredients": [
@@ -503,29 +524,10 @@
           "options": []
         },
         {
-          "id": "10",
-          "name": "Beijing Roast Duck Rice Bowl",
-          "price": 18,
-          "image": "/images/Rice Bowls/Beijing Roast Duck Rice Bowl.png",
-          "tags": {
-            "ingredients": [
-              "Duck",
-              "Rice"
-            ],
-            "flavors": [
-              "Savory"
-            ],
-            "restrictions": []
-          },
-          "isModified": false,
-          "modifiedFields": [],
-          "options": []
-        },
-        {
           "id": "11",
           "name": "Sichuan Stir-fried Pork Rice Bowl",
           "description": "",
-          "price": 15.5,
+          "price": 14.9,
           "image": "/images/Rice Bowls/Sichuan Stir-fried Pork Rice Bowl.png",
           "tags": {
             "ingredients": [
@@ -548,7 +550,7 @@
           "id": "12",
           "name": "Teriyaki Salmon Rice Bowl",
           "description": "GFO",
-          "price": 17.5,
+          "price": 15.9,
           "image": "/images/Rice Bowls/Teriyaki Salmon Rice Bowl.png",
           "tags": {
             "ingredients": [
@@ -570,7 +572,7 @@
         {
           "id": "13",
           "name": "Taiwanese Pork Belly Rice Bowl",
-          "price": 16,
+          "price": 15.9,
           "image": "/images/Rice Bowls/Taiwanese Pork Belly Rice Bowl.png",
           "tags": {
             "ingredients": [
@@ -590,7 +592,7 @@
           "id": "14",
           "name": "Mapo Tofu Rice Bowl",
           "description": "",
-          "price": 14.5,
+          "price": 13.9,
           "image": "/images/Rice Bowls/Mapo Tofu.png",
           "tags": {
             "ingredients": [
@@ -612,8 +614,8 @@
         },
         {
           "id": "15",
-          "name": "Mushroom Satay Chicken Rice Bowl",
-          "price": 15.5,
+          "name": "Satay Chicken Rice Bowl",
+          "price": 14.9,
           "image": "/images/Rice Bowls/Mushroom Satay Chicken Rice Bowl.png",
           "tags": {
             "ingredients": [
@@ -637,7 +639,7 @@
           "id": "16",
           "name": "Mongolian Grilled Beef Rice Bowl",
           "description": "GFO",
-          "price": 16.5,
+          "price": 14.9,
           "image": "/images/Rice Bowls/Mongolian Grilled Beef Rice Bowl.png",
           "tags": {
             "ingredients": [
@@ -657,9 +659,9 @@
         },
         {
           "id": "17",
-          "name": "HongKong Curry Pork Chop Rice Bowl",
-          "image": "/images/Rice Bowls/HongKong Curry Pork Chop Rice Bowl.png",
-          "price": 16,
+          "name": "Thai Red Curry Chicken Rice Bowl",
+          "image": "/images/Rice Bowls/Thai Red Curry Chicken Rice Bowl.png",
+          "price": 14.9,
           "tags": {
             "ingredients": [
               "Pork",
@@ -671,6 +673,29 @@
             ],
             "restrictions": []
           },
+          "isModified": false,
+          "modifiedFields": [],
+          "options": []
+        },
+        {
+          "name": "XinJiang Chicken Rice Bowl",
+          "price": 14.9,
+          "description": "",
+          "tags": {
+            "ingredients": [
+              "Chicken",
+              "Tomato"
+            ],
+            "flavors": [
+              "Sweet",
+              "Sour"
+            ],
+            "restrictions": [
+              "Nut-free"
+            ]
+          },
+          "image": "/images/Rice Bowls/XinJiang Chicken Rice Bowl.png",
+          "id": "31",
           "isModified": false,
           "modifiedFields": [],
           "options": []
@@ -687,7 +712,7 @@
         {
           "id": "18",
           "name": "Sichuan Chunky Beef Noodle Soup",
-          "price": 11.9,
+          "price": 15.9,
           "image": "/images/Soup/Sichuan Chunky Beef Noodle Soup.png",
           "tags": {
             "ingredients": [
@@ -706,7 +731,7 @@
         },
         {
           "id": "19",
-          "name": "Shanghai Wonton Noodle Soup",
+          "name": "Shanghai Wonton(4pcs) Noodle Soup",
           "price": 12.9,
           "image": "/images/Soup/Shanghai Wonton Noodle Soup.png",
           "tags": {
@@ -726,14 +751,13 @@
         },
         {
           "id": "20",
-          "name": "Yunnan Rice Noodle Soup",
-          "price": 11.9,
+          "name": "Yunnan Fried Pork Belly Noodle Soup",
+          "price": 15.9,
           "image": "/images/Soup/Yunnan Rice Noodle Soup.png",
           "tags": {
             "ingredients": [
-              "Pork",
               "Noodles",
-              "Rice"
+              "Pork"
             ],
             "flavors": [
               "Savory"
@@ -746,9 +770,9 @@
         },
         {
           "id": "21",
-          "name": "Kong Fu Malatang Hot Pot",
+          "name": "SiChuan Malatang Hot Pot",
           "description": "",
-          "price": 12.99,
+          "price": 15.9,
           "image": "/images/Soup/Kong Fu Malatang Hot Pot.png",
           "tags": {
             "ingredients": [
@@ -782,7 +806,7 @@
           "options": [
             {
               "name": "Combination",
-              "price": 3,
+              "price": 2,
               "tags": {
                 "ingredients": [
                   "Mixed"
@@ -795,7 +819,7 @@
             },
             {
               "name": "Prawn",
-              "price": 3,
+              "price": 2,
               "tags": {
                 "ingredients": [
                   "Prawn"
@@ -822,7 +846,7 @@
             },
             {
               "name": "Chicken",
-              "price": 1,
+              "price": 0,
               "tags": {
                 "ingredients": [
                   "Chicken"
@@ -835,7 +859,7 @@
             },
             {
               "name": "Beef",
-              "price": 2,
+              "price": 1,
               "tags": {
                 "ingredients": [
                   "Beef"
@@ -888,7 +912,7 @@
           "options": [
             {
               "name": "Combination",
-              "price": 3,
+              "price": 2,
               "tags": {
                 "ingredients": [
                   "Mixed"
@@ -901,7 +925,7 @@
             },
             {
               "name": "Prawn",
-              "price": 3,
+              "price": 2,
               "tags": {
                 "ingredients": [
                   "Prawn"
@@ -928,7 +952,7 @@
             },
             {
               "name": "Chicken",
-              "price": 1,
+              "price": 0,
               "tags": {
                 "ingredients": [
                   "Chicken"
@@ -941,7 +965,7 @@
             },
             {
               "name": "Beef",
-              "price": 2,
+              "price": 1,
               "tags": {
                 "ingredients": [
                   "Beef"
@@ -981,7 +1005,9 @@
             "flavors": [
               "Savory"
             ],
-            "restrictions": []
+            "restrictions": [
+              "Gluten-free"
+            ]
           }
         },
         {
@@ -992,7 +1018,7 @@
           "options": [
             {
               "name": "Combination",
-              "price": 3,
+              "price": 2,
               "tags": {
                 "ingredients": [
                   "Mixed"
@@ -1005,7 +1031,7 @@
             },
             {
               "name": "Prawn",
-              "price": 2.5,
+              "price": 2,
               "tags": {
                 "ingredients": [
                   "Prawn"
@@ -1032,7 +1058,7 @@
             },
             {
               "name": "Chicken",
-              "price": 2,
+              "price": 0,
               "tags": {
                 "ingredients": [
                   "Chicken"
@@ -1045,7 +1071,7 @@
             },
             {
               "name": "Beef",
-              "price": 2,
+              "price": 1,
               "tags": {
                 "ingredients": [
                   "Beef"
@@ -1077,7 +1103,7 @@
           ],
           "isModified": false,
           "modifiedFields": [],
-          "price": 12.99,
+          "price": 12.9,
           "tags": {
             "ingredients": [
               "Mixed"
@@ -1086,7 +1112,9 @@
               "Sour",
               "Sweet"
             ],
-            "restrictions": []
+            "restrictions": [
+              "Gluten-free"
+            ]
           }
         },
         {
@@ -1097,7 +1125,7 @@
           "options": [
             {
               "name": "Combination",
-              "price": 3,
+              "price": 2,
               "tags": {
                 "ingredients": [
                   "Mixed"
@@ -1110,7 +1138,7 @@
             },
             {
               "name": "Prawn",
-              "price": 3,
+              "price": 2,
               "tags": {
                 "ingredients": [
                   "Prawn"
@@ -1137,7 +1165,7 @@
             },
             {
               "name": "Chicken",
-              "price": 1,
+              "price": 0,
               "tags": {
                 "ingredients": [
                   "Chicken"
@@ -1150,7 +1178,7 @@
             },
             {
               "name": "Beef",
-              "price": 2,
+              "price": 1,
               "tags": {
                 "ingredients": [
                   "Beef"
@@ -1182,7 +1210,7 @@
           ],
           "isModified": false,
           "modifiedFields": [],
-          "price": 11.9,
+          "price": 12.9,
           "tags": {
             "ingredients": [
               "Mixed"
@@ -1190,7 +1218,9 @@
             "flavors": [
               "Savory"
             ],
-            "restrictions": []
+            "restrictions": [
+              "Gluten-free"
+            ]
           }
         }
       ],
@@ -1198,5 +1228,5 @@
       "modifiedFields": []
     }
   ],
-  "lastModified": "2026-03-15T18:35:45.468Z"
+  "lastModified": "2026-03-20T03:32:58.394Z"
 }
