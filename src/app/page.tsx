@@ -284,14 +284,14 @@ export default function Home() {
                   <motion.h3
                     layoutId={`card-title-${item.id}`}
                     transition={{ type: 'spring', stiffness: 280, damping: 28 }}
-                    className='text-xl font-bold text-white group-hover:text-amber-400 transition-colors duration-300 mb-1'
+                    className='text-xl font-bold h-20 text-white group-hover:text-amber-400 transition-colors duration-300 mb-1'
                   >
                     {item.title}
                   </motion.h3>
-                  <div className='text-xs font-mono text-gray-500 mb-3 uppercase tracking-wider'>
+                  <div className='text-[12px] font-mono font-bold text-white/50 mb-3 uppercase tracking-wider'>
                     {item.subtitle}
                   </div>
-                  <p className='text-gray-400 text-sm leading-relaxed line-clamp-2'>
+                  <p className='text-white/70 text-sm leading-relaxed line-clamp-2'>
                     {item.description}
                   </p>
                 </div>
@@ -365,10 +365,12 @@ export default function Home() {
                 {/* Modal Footer */}
                 <div className='p-6 bg-[#141416] border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4'>
                   <div>
-                    <div className='text-xs font-mono text-gray-500 mb-1'>
+                    <div
+                      className={` text-xs font-semibold   backdrop-blur-xl ${activeImage.badgeColor}`}
+                    >
                       {activeImage.subtitle}
                     </div>
-                    <p className='text-sm text-gray-300'>
+                    <p className='text-sm text-white/70'>
                       {activeImage.description}
                     </p>
                   </div>
@@ -398,7 +400,8 @@ export default function Home() {
             <h4 className='font-bold text-lg mb-2'>Double Backup</h4>
             <p className='text-sm text-gray-500 leading-relaxed'>
               Changes are automatically synced to your browser's local storage.
-              Quick update without Internet connection. Optimistic UI.
+              Quick update without Internet connection. Optimistic UI. When
+              Connect Wifi, it will auto upload to server.
             </p>
           </div>
           <div className='flex flex-col items-center text-center px-4'>
