@@ -17,7 +17,7 @@ export default function ScreenPage() {
 
   return (
     <div className="h-screen flex items-center justify-center bg-[#0a0a0a]">
-      <div className="text-4xl font-bold text-white">加载中...</div>
+      <div className="text-4xl font-bold text-white">Loading...</div>
     </div>
   );
 }

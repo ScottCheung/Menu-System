@@ -129,16 +129,16 @@ export function MenuItemEditForm({
   return (
     <div className='space-y-4'>
       <InputField
-        label='菜品名称'
+        label='Dish Name'
         value={editForm.name || ''}
         onChange={(e) => onFormChange({ name: e.target.value })}
         required
       />
 
-      {/* 图片上传 */}
+      {/* Image Upload */}
       <div>
         <label className='block text-sm font-medium text-amber-900 mb-2'>
-          菜品图片
+          Dish Image
         </label>
         <div className='flex items-center gap-4'>
           <Input
@@ -149,14 +149,14 @@ export function MenuItemEditForm({
             className='flex-1'
           />
           {uploadingImage && (
-            <Badge variant='warning'>上传中...</Badge>
+            <Badge variant='warning'>Uploading...</Badge>
           )}
         </div>
         {editForm.image && (
           <div className='mt-2 relative w-32 h-32'>
             <Image
               src={editForm.image}
-              alt='预览'
+              alt='Preview'
               fill
               sizes='128px'
               className='object-cover rounded-lg border border-amber-200'
@@ -168,7 +168,7 @@ export function MenuItemEditForm({
       <div className='grid grid-cols-2 gap-4'>
         {!hasOptions && (
           <InputField
-            label='价格 ($)'
+            label='Price ($)'
             type='number'
             step='0.5'
             value={editForm.price || ''}
@@ -178,13 +178,13 @@ export function MenuItemEditForm({
           />
         )}
         <InputField
-          label='描述 (可选)'
+          label='Description (Optional)'
           value={editForm.description || ''}
           onChange={(e) => onFormChange({ description: e.target.value })}
         />
       </div>
 
-      {/* 标签选择 */}
+      {/* Tag Selector */}
       <TagSelector
         selectedTags={
           editForm.tags || { ingredients: [], flavors: [], restrictions: [] }
@@ -192,15 +192,15 @@ export function MenuItemEditForm({
         onToggle={handleTagToggle}
       />
 
-      {/* 选项管理 */}
+      {/* Options Management */}
       <div className='space-y-3'>
         <div className='flex items-center justify-between'>
           <div>
             <label className='block text-sm font-medium text-amber-900'>
-              菜品选项
+              Dish Options
             </label>
             <p className='text-xs text-amber-600 mt-1'>
-              如果菜品有多个选项（如不同肉类），请在这里添加。价格将显示为"从最低价起"，每个选项显示相对价格差。
+              If this dish has multiple options (e.g. choice of meat), add them here. The price will display as "From $MIN_PRICE" with option price deltas.
             </p>
           </div>
           <Button
@@ -209,7 +209,7 @@ export function MenuItemEditForm({
             size='sm'
             Icon={Plus}
           >
-            添加选项
+            Add Option
           </Button>
         </div>
 
@@ -221,20 +221,20 @@ export function MenuItemEditForm({
                 <Card key={index} className='bg-amber-50/50'>
                   <CardContent className='space-y-3'>
                     <div className='flex items-center justify-between'>
-                      <Badge variant='neutral'>选项 {index + 1}</Badge>
+                      <Badge variant='neutral'>Option {index + 1}</Badge>
                       <Button
                         onClick={() => handleRemoveOption(index)}
                         variant='destructive'
                         size='sm'
                         Icon={Trash2}
                       >
-                        删除
+                        Delete
                       </Button>
                     </div>
 
                     <div className='grid grid-cols-2 gap-3'>
                       <InputField
-                        label='选项名称'
+                        label='Option Name'
                         value={option.name}
                         onChange={(e) =>
                           handleOptionChange(index, { name: e.target.value })
@@ -243,7 +243,7 @@ export function MenuItemEditForm({
                       />
                       <div>
                         <InputField
-                          label='价格 ($)'
+                          label='Price ($)'
                           type='number'
                           step='0.5'
                           value={option.price || ''}
@@ -255,7 +255,7 @@ export function MenuItemEditForm({
                         />
                         {priceDiff !== 0 && (
                           <p className='text-xs text-amber-600 mt-1'>
-                            相对基础价: +${priceDiff.toFixed(2)}
+                            Diff from base: +${priceDiff.toFixed(2)}
                           </p>
                         )}
                       </div>
@@ -278,7 +278,7 @@ export function MenuItemEditForm({
               );
             })}
             <div className='text-sm text-amber-700 bg-amber-50 p-3 rounded-lg'>
-              基础价格（最低价）: ${basePrice.toFixed(2)}
+              Base Price (Starting From): ${basePrice.toFixed(2)}
             </div>
           </div>
         )}
@@ -286,10 +286,10 @@ export function MenuItemEditForm({
 
       <div className='flex gap-3'>
         <Button onClick={onSave} variant='default' Icon={Save}>
-          保存
+          Save
         </Button>
         <Button onClick={onCancel} variant='secondary' Icon={X}>
-          取消
+          Cancel
         </Button>
       </div>
     </div>

@@ -63,18 +63,18 @@ export function AddItemModal({
         className='bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8'
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className='text-2xl font-bold text-amber-900 mb-6'>新增菜品</h2>
+        <h2 className='text-2xl font-bold text-amber-900 mb-6'>Add New Dish</h2>
         <div className='space-y-4 max-h-[70vh] overflow-y-auto'>
           <div>
             <label className='block text-sm font-medium text-amber-900 mb-1'>
-              分类 *
+              Category *
             </label>
             <select
               value={newItemForm.category}
               onChange={(e) => onFormChange({ category: e.target.value })}
               className='w-full px-4 py-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500'
             >
-              <option value=''>选择分类</option>
+              <option value=''>Select Category</option>
               {categories
                 .filter((cat) => cat !== 'all')
                 .map((cat) => (
@@ -86,21 +86,21 @@ export function AddItemModal({
           </div>
           <div>
             <label className='block text-sm font-medium text-amber-900 mb-1'>
-              菜品名称 *
+              Dish Name *
             </label>
             <input
               type='text'
               value={newItemForm.name}
               onChange={(e) => onFormChange({ name: e.target.value })}
               className='w-full px-4 py-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500'
-              placeholder='输入菜品名称'
+              placeholder='Enter dish name'
             />
           </div>
 
-          {/* 图片上传 */}
+          {/* Image Upload */}
           <div>
             <label className='block text-sm font-medium text-amber-900 mb-1'>
-              菜品图片
+              Dish Image
             </label>
             <div className='flex items-center gap-4'>
               <input
@@ -113,14 +113,14 @@ export function AddItemModal({
                 className='flex-1 px-4 py-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm'
               />
               {uploadingImage && (
-                <span className='text-sm text-amber-600'>上传中...</span>
+                <span className='text-sm text-amber-600'>Uploading...</span>
               )}
             </div>
             {newItemForm.image && (
               <div className='mt-2 relative w-32 h-32'>
                 <Image
                   src={newItemForm.image}
-                  alt='预览'
+                  alt='Preview'
                   fill
                   sizes='128px'
                   className='object-cover rounded-lg border border-amber-200'
@@ -129,7 +129,7 @@ export function AddItemModal({
             )}
             {(!newItemForm.category || !newItemForm.name) && (
               <p className='text-xs text-amber-600 mt-1'>
-                请先填写分类和菜品名称
+                Please fill in category and dish name first
               </p>
             )}
           </div>
@@ -137,7 +137,7 @@ export function AddItemModal({
           <div className='grid grid-cols-2 gap-4'>
             <div>
               <label className='block text-sm font-medium text-amber-900 mb-1'>
-                价格 ($) *
+                Price ($) *
               </label>
               <input
                 type='number'
@@ -151,19 +151,19 @@ export function AddItemModal({
             </div>
             <div>
               <label className='block text-sm font-medium text-amber-900 mb-1'>
-                描述 (可选)
+                Description (Optional)
               </label>
               <input
                 type='text'
                 value={newItemForm.description}
                 onChange={(e) => onFormChange({ description: e.target.value })}
                 className='w-full px-4 py-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500'
-                placeholder='简短描述'
+                placeholder='Short description'
               />
             </div>
           </div>
 
-          {/* 标签选择 */}
+          {/* Tag Selection */}
           <TagSelector
             selectedTags={
               newItemForm.tags || {
@@ -180,13 +180,13 @@ export function AddItemModal({
               onClick={onSubmit}
               className='flex-1 px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-md hover:shadow-lg font-medium'
             >
-              ✓ 添加菜品
+              ✓ Add Dish
             </button>
             <button
               onClick={onClose}
               className='flex-1 px-6 py-3 bg-gray-400 text-white rounded-lg hover:bg-gray-500 transition-colors font-medium'
             >
-              ✕ 取消
+              ✕ Cancel
             </button>
           </div>
         </div>

@@ -29,14 +29,14 @@ export function EditorHeader({
       });
 
       if (!response.ok) {
-        throw new Error('同步失败');
+        throw new Error('Synchronization failed');
       }
 
       const result = await response.json();
-      alert(`同步成功！已同步 ${result.synced.join(', ')}`);
+      alert(`Sync successful! Synced ${result.synced.join(', ')}`);
     } catch (error) {
       alert(
-        '同步失败: ' + (error instanceof Error ? error.message : '未知错误'),
+        'Sync failed: ' + (error instanceof Error ? error.message : 'Unknown error'),
       );
     } finally {
       setIsSyncing(false);

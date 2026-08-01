@@ -42,11 +42,11 @@ export function SaveConfirmModal({
         </div>
         <div className='p-6 overflow-y-auto max-h-[60vh]'>
           <div className='space-y-6'>
-            {/* 修改的项目 */}
+            {/* Modified Items */}
             {modifiedItems.length > 0 && (
               <div>
                 <h3 className='text-lg font-bold text-amber-900 mb-3'>
-                  📝 修改的菜品 ({modifiedItems.length})
+                  📝 Modified Items ({modifiedItems.length})
                 </h3>
                 <div className='space-y-3'>
                   {modifiedItems.map((item) => {
@@ -70,20 +70,20 @@ export function SaveConfirmModal({
                               </span>
                               <div className='ml-4 mt-1 space-y-1'>
                                 <div className='text-red-600'>
-                                  <span className='font-medium'>原值:</span>{' '}
+                                  <span className='font-medium'>Original:</span>{' '}
                                   {oldValue !== undefined ?
                                     typeof oldValue === 'object' ?
                                       JSON.stringify(oldValue)
                                     : String(oldValue)
-                                  : '(无)'}
+                                  : '(None)'}
                                 </div>
                                 <div className='text-green-600'>
-                                  <span className='font-medium'>新值:</span>{' '}
+                                  <span className='font-medium'>New:</span>{' '}
                                   {newValue !== undefined ?
                                     typeof newValue === 'object' ?
                                       JSON.stringify(newValue)
                                     : String(newValue)
-                                  : '(无)'}
+                                  : '(None)'}
                                 </div>
                               </div>
                             </div>
@@ -96,11 +96,11 @@ export function SaveConfirmModal({
               </div>
             )}
 
-            {/* 新增的项目 */}
+            {/* Added Items */}
             {addedItems.length > 0 && (
               <div>
                 <h3 className='text-lg font-bold text-green-900 mb-3'>
-                  ➕ 新增的菜品 ({addedItems.length})
+                  ➕ Added Items ({addedItems.length})
                 </h3>
                 <div className='space-y-3'>
                   {addedItems.map((item) => (
@@ -110,7 +110,7 @@ export function SaveConfirmModal({
                     >
                       <h4 className='font-bold text-green-900'>{item.name}</h4>
                       <p className='text-sm text-green-700 mt-1'>
-                        价格: ${item.price?.toFixed(2)}
+                        Price: ${item.price?.toFixed(2)}
                         {item.description && ` | ${item.description}`}
                       </p>
                     </div>
@@ -119,11 +119,11 @@ export function SaveConfirmModal({
               </div>
             )}
 
-            {/* 删除的项目 */}
+            {/* Deleted Items */}
             {deletedItems.length > 0 && (
               <div>
                 <h3 className='text-lg font-bold text-red-900 mb-3'>
-                  🗑️ 删除的菜品 ({deletedItems.length})
+                  🗑️ Deleted Items ({deletedItems.length})
                 </h3>
                 <div className='space-y-3'>
                   {deletedItems.map((item) => (
@@ -133,7 +133,7 @@ export function SaveConfirmModal({
                     >
                       <h4 className='font-bold text-red-900'>{item.name}</h4>
                       <p className='text-sm text-red-700 mt-1'>
-                        价格: ${item.price?.toFixed(2)}
+                        Price: ${item.price?.toFixed(2)}
                         {item.description && ` | ${item.description}`}
                       </p>
                     </div>
@@ -148,13 +148,13 @@ export function SaveConfirmModal({
             onClick={onConfirm}
             className='flex-1 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-md hover:shadow-lg font-medium'
           >
-            ✓ 确认保存
+            ✓ Confirm Save
           </button>
           <button
             onClick={onClose}
             className='flex-1 px-6 py-3 bg-gray-400 text-white rounded-lg hover:bg-gray-500 transition-colors font-medium'
           >
-            ✕ 取消
+            ✕ Cancel
           </button>
         </div>
       </motion.div>
