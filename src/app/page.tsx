@@ -319,7 +319,7 @@ export default function Home() {
               >
                 {/* Modal Header */}
                 <div className='flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/5'>
-                  <div className='flex items-center gap-3'>
+                  <div className='flex items-center flex-wrap gap-3'>
                     <motion.span
                       layoutId={`card-badge-${activeImage.id}`}
                       transition={{
@@ -338,7 +338,7 @@ export default function Home() {
                         stiffness: 280,
                         damping: 28,
                       }}
-                      className='font-bold text-lg text-white'
+                      className='font-bold text-lg z-50 text-white'
                     >
                       {activeImage.title}
                     </motion.h3>
